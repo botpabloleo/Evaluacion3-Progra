@@ -103,16 +103,18 @@ function validar_comuna() {
 function validar_telefono() {
     var telefono = document.getElementById("input-telefono").value;
     var div_error = document.getElementById("error-telefono");
-    var regexTelefono = /^(\+56)?9\d{8}$/;
-    if (!regexTelefono.test(telefono)) {
-        div_error.innerHTML = "El teléfono debe contener 9 dígitos";
-        div_error.className = "text-danger small mt-1";
-        return false;
-    } else {
+    if ((telefono.startsWith("+569") && telefono.length === 12) || 
+        (telefono.startsWith("569") && telefono.length === 11) || 
+        (telefono.startsWith("9") && telefono.length === 9)) {
         div_error.innerHTML = "";
         return true;
+    } else {
+        div_error.innerHTML = "El teléfono debe tener el formato +569XXXXXXXX, 569XXXXXXXX o 9XXXXXXXX";
+        div_error.className = "text-danger small mt-1";
+        return false;
     }
 }
+
 
 
 function validar_url() {
