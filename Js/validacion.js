@@ -149,8 +149,8 @@ function validar_aficiones() {
     var lista = document.getElementById("lista-aficiones").getElementsByTagName("li");
     var error_div = document.getElementById("error-aficiones");
 
-    if (lista.length === 0) {
-        error_div.innerHTML = "Debe agregar al menos una afición";
+    if (lista.length < 2) {
+        error_div.innerHTML = "Debe agregar al menos dos aficiones";
         error_div.className = "text-danger small mt-1";
         return false;
     } else {
@@ -158,4 +158,3 @@ function validar_aficiones() {
         return true;
     }
 }
-

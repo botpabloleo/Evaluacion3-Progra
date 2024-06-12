@@ -9,6 +9,11 @@
     animation: moverFondo 10s ease infinite;
 }
 
+button[type="submit"] {
+    background-color: #3651b4;
+    color: #ffffff;
+}
+
 @keyframes moverFondo {
     0% {
         background-position: 0% 50%;
