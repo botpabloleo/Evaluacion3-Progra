@@ -103,9 +103,9 @@ function validar_comuna() {
 function validar_telefono() {
     var telefono = document.getElementById("input-telefono").value;
     var div_error = document.getElementById("error-telefono");
-    var regexTelefono = /^\+569\d{8}$/;
+    var regexTelefono = /^(\+56)?9\d{8}$/;
     if (!regexTelefono.test(telefono)) {
-        div_error.innerHTML = "El teléfono debe tener el formato +569XXXXXXXX";
+        div_error.innerHTML = "El teléfono debe contener 9 dígitos";
         div_error.className = "text-danger small mt-1";
         return false;
     } else {
@@ -114,12 +114,13 @@ function validar_telefono() {
     }
 }
 
+
 function validar_url() {
     var url = document.getElementById("input-url").value;
     var div_error = document.getElementById("error-url");
-    var regexUrl = /^(http|https):\/\/[a-zA-Z0-9\.-]+\.[a-zA-Z]{2,}(\/.*)?$/;
+    var regexUrl = /^(https?:\/\/)?([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})(\/.*)?$/;
     if (!regexUrl.test(url)) {
-        div_error.innerHTML = "La URL debe tener el formato http://www.example.com";
+        div_error.innerHTML = "La URL debe tener el formato http://www.example.com o www.example.com o example.com";
         div_error.className = "text-danger small mt-1";
         return false;
     } else {
